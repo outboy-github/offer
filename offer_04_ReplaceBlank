@@ -1,0 +1,37 @@
+```java
+package com.wyw.offer;
+
+public class Offer_04_ReplaceBlank {
+	public static void main(String[] args) {
+		char[] arrayOfbefore = {'w','e',' ', 'a', 'r', 'e', ' ', 'h', 'a','p', 'p', 'y', '.'};
+		
+		char[] arrayOfAfter = replaceBlank(arrayOfbefore);
+		System.out.println(arrayOfAfter);
+		int a = 0;
+		System.out.println(--a);
+	}
+	public static char[] replaceBlank(char[] array){		 
+		
+		int blankNum = 0;
+		for(char a : array){
+			if(' ' == a){
+				blankNum++;
+			}
+		}
+		int lengthOfAfter = array.length + blankNum * 2;
+		char[] arrayOfAfter = new char[lengthOfAfter]; 
+		int j = lengthOfAfter - 1;
+		for(int i = array.length - 1; i>=0; i--){
+			if(array[i] != ' '){
+				arrayOfAfter[j--] = array[i];
+			}
+			else{
+				arrayOfAfter[j--] = '0';
+				arrayOfAfter[j--] = '2';
+				arrayOfAfter[j--] = '%';
+			}
+		}
+		return arrayOfAfter;		
+	}
+}
+```
