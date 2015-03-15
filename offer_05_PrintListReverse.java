@@ -1,5 +1,3 @@
-<!--lang:java-->
-
 package com.wyw.offer;
 
 import java.util.Stack;
