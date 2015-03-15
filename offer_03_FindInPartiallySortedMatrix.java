@@ -1,5 +1,3 @@
-```java
-
     package com.wyw.offer;
 
     public class Offer_03 {
@@ -37,4 +35,3 @@
 			return found;		
 		}
     }
-   ```
