@@ -7,8 +7,6 @@ public class Offer_05_PrintListReversingly {
 	public static void main(String[] args) {
 		
 		String[] strList = {"a","b","c"};
-//		Node<Object> first = new Node<Object>();
-		
 		
 		Node first =  parseListToLinkList(strList);
 		
