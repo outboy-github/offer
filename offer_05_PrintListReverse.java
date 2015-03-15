@@ -55,23 +55,6 @@ public class Offer_05_PrintListReversingly {
 		}
 		return first;
 	}
-	public static class NodeList{
-		Node first = null;
-		Node last = null;
-		
-		private void addNodeToList(Node node){
-			if(first == null){
-				first = node;
-			}
-			else{
-				Node tmp = first;
-				while(tmp.next != null){
-					tmp = tmp.next;
-				}
-				tmp.next = node;
-			}
-		}
-	}
 	private static class Node{
 		String value;
 		Node next;
