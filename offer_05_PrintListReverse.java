@@ -40,18 +40,20 @@ public class Offer_05_PrintListReversingly {
 	}
 
 	private static Node parseListToLinkList(String[] array){
-		NodeList nodeList = new NodeList();
-		if(array.length == 0){
-			return new Node(null);
-		}
-		else{
-			int i = 0;
-			while(i < array.length){
-				nodeList.addNodeToList(new Node(array[i]));
-				i++;
+		Node first = null;
+		Node c = first;
+		for(String i : array){
+		
+			Node node = new Node(i);
+			if(first == null){
+				first = node;
+				c = first;
+			}else{
+				c.next = node;
+				c = c.next;
 			}
-			return nodeList.first;
 		}
+		return first;
 	}
 	public static class NodeList{
 		Node first = null;
@@ -76,7 +78,6 @@ public class Offer_05_PrintListReversingly {
 		public Node(String value){
 			this.value = value;
 		}
-
 	}
 }
 
