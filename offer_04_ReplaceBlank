@@ -1,16 +1,25 @@
 ```java
 package com.wyw.offer;
 
-public class Offer_04_ReplaceBlank {
+public class Offer_04 {
 	public static void main(String[] args) {
-		char[] arrayOfbefore = {'w','e',' ', 'a', 'r', 'e', ' ', 'h', 'a','p', 'p', 'y', '.'};
+		/**
+		 * 测试用例
+		 */
+//		char[] arrayOfbefore = {'w','e',' ', 'a', 'r', 'e', ' ', 'h', 'a','p', 'p', 'y', '.'};
+//		char[] arrayOfbefore = {' ','w', 'e',' ', 'a', 'r', 'e', ' ', 'h', 'a','p', 'p', 'y', '.'};
+//		char[] arrayOfbefore = {'w','e',' ', 'a', 'r', 'e', ' ', 'h', 'a','p', 'p', 'y', '.', ' '};
+		char[] arrayOfbefore = {'w','e',' ', 'a', 'r', 'e', ' ', ' ', ' ', 'h', 'a','p', 'p', 'y', '.'};
+//		char[] arrayOfbefore = {' ', ' ', ' '};
+//		char[] arrayOfbefore = {' '};
+//		char[] arrayOfbefore = {};
 		
-		char[] arrayOfAfter = replaceBlank(arrayOfbefore);
-		System.out.println(arrayOfAfter);
-		int a = 0;
-		System.out.println(--a);
+		char[] arrayOfAfter1 = replaceBlank_1(arrayOfbefore);
+		System.out.println(arrayOfAfter1);
+		char[] arrayOfAfter2 = replaceBlank_2(arrayOfbefore);
+		System.out.println(arrayOfAfter2);
 	}
-	public static char[] replaceBlank(char[] array){		 
+	public static char[] replaceBlank_1(char[] array){		 
 		
 		int blankNum = 0;
 		for(char a : array){
@@ -32,6 +41,21 @@ public class Offer_04_ReplaceBlank {
 			}
 		}
 		return arrayOfAfter;		
+	}
+	
+	public static char[] replaceBlank_2(char[] array){		 
+		StringBuffer sb = new StringBuffer();
+		for(int i = 0; i < array.length; i++){
+			if(array[i] != ' '){
+				sb.append(array[i]);
+			}
+			else{
+				sb.append('%');
+				sb.append('2');
+				sb.append('0');
+			}
+		}
+		return sb.toString().toCharArray();		
 	}
 }
 ```
