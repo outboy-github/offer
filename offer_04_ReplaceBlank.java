@@ -1,4 +1,3 @@
-```java
 package com.wyw.offer;
 
 public class Offer_04 {
@@ -58,4 +57,3 @@ public class Offer_04 {
 		return sb.toString().toCharArray();		
 	}
 }
-```
