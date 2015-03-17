@@ -50,30 +50,29 @@ public class Offer_07_QueryWithTwoStacks {
 			}
 		}
 	}
-	//	StackWithTwoQuerys
+//	StackWithTwoQuerys
 	public static class StackWithTwoQuerys{
 		private Deque<String> queue1 = new ArrayDeque<String>();
 		private Deque<String> queue2 = new ArrayDeque<String>();
 		
 		public  void push(String e){
-			queue1.addLast(e);
+			queue1.addFirst(e);
 		}
 		
 		public  String pop(){
-			if(queue2 != null && queue2.size() != 0){
-				return queue2.removeLast();
+			if(!queue2.isEmpty()){
+				return queue2.removeFirst();
 			}
 			else{
-				while(queue1 != null && queue1.size() != 0){
-					queue2.addFirst(queue1.removeLast());
+				while(queue1.size() > 1){
+					queue2.addFirst(queue1.removeFirst());
 				}
-				if(queue2 != null && queue2.size() != 0){
-					return queue2.removeLast();
-				}
-				else{
-					System.out.println("queue is null.");
-					return null;
-				}
+				Deque<String> tmp = queue1;
+				queue1 = queue2;
+				queue2 = tmp;
+				
+				return tmp.removeFirst();
+				
 			}
 		}
 	}
