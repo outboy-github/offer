@@ -28,12 +28,7 @@ public class Offer_12_Print1ToMaxOfNDigits {
 				System.out.print("0 ");
 			}
 			else{
-				if(new String(current).equals("888")){
-					System.out.println(current);
-				}
-				else{
-					System.out.print(new String(current).substring(index) + " ");
-				}
+				System.out.print(new String(current).substring(index) + " ");
 			}
 			current = currentAdd(current);
 		}
