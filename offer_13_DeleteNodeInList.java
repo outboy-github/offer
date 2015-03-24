@@ -5,18 +5,21 @@ import java.util.Random;
 public class Offer_13_DeleteNodeInList {
 
 	public static void main(String[] args){
-		String[] strList = {"a","b","c"};
+		String[] strList = {};//{"a","b","c"};
 		
 		Node<String> first = parseListToLinkList(strList);
-		int i = new Random().nextInt(strList.length);
-		
-		Node<String> node = first;
-		
-		while(i != 0){
-			node = node.next;
-			i--;
+		if(first == null){
+			System.out.println("list is null.");
 		}
-		deleteNodeInList(first,node);
+		else{
+			int i = new Random().nextInt(strList.length);
+			Node<String> node = first;
+			while(i != 0){
+				node = node.next;
+				i--;
+			}
+			deleteNodeInList(first,node);
+		}
 	}
 	
 	static void deleteNodeInList(Node<String> first, Node<String> node){
@@ -62,6 +65,7 @@ public class Offer_13_DeleteNodeInList {
 			}
 		}
 		return first;
+		
 	}
 	static class Node<String>{
 		String value;
