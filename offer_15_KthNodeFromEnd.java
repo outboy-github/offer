@@ -5,7 +5,7 @@ public class Offer_15_KthNodeFromEnd{
 	public static void main(String[] args){
 		
 		String[] array = {"a","b","c","d","e"};
-		int k = 7;
+		int k = 1;
 		Node<String> first = parseArrayToLink(array);
 		
 		Node<String> kthNode = KthNodeFromEnd(first, k);
@@ -23,21 +23,20 @@ public class Offer_15_KthNodeFromEnd{
 		if(first == null || k == 0){
 			return null;
 		}
-		int start = 1;
 		int end = 1;
-		Node<String> node = first;
+		Node<String> node = first.next;
 		while(node != null){
-			node = node.next;
-			end++;
 			if(end == k){
 				break;
 			}
+			node = node.next;
+			end++;
 		}
 		if(end < k){
 			return null;
 		}
 		kthNode = first;
-		while(node.next != null){
+		while(node != null){
 			node = node.next;
 			kthNode = kthNode.next;
 		}
@@ -60,7 +59,6 @@ public class Offer_15_KthNodeFromEnd{
 		}
 		return first;
 	}
-	
 	static class Node<String>{
 		String value;
 		Node<String> next;
