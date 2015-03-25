@@ -5,7 +5,7 @@ import java.util.Random;
 public class Offer_13_DeleteNodeInList {
 
 	public static void main(String[] args){
-		String[] strList = {};//{"a","b","c"};
+		String[] strList = {"a"};//{"a","b","c"};
 		
 		Node<String> first = parseListToLinkList(strList);
 		if(first == null){
@@ -31,21 +31,22 @@ public class Offer_13_DeleteNodeInList {
 			System.out.println("the delete node is null. ");
 		//the node to delete is not tail--O(1)
 		if(node.next != null){
-			Node<String> n = node.next;
-			node.value = n.value;
-			node.next = n.next;
-			n.value = null;
-			n.next = null;
+			Node<String> next = node.next;
+			node.value = next.value;
+			node.next = next.next;
+			next.value = null;
+			next.next = null;
 		}
 		//the node to delete is tail--O(n)
 		else{
 			Node<String> n = first;
-			while(n.next != node){
+			Node<String> pre = n;
+			while(n != node){
+				pre = n;
 				n = n.next;
 			}
-			
-			n.next.value = null;
-			n.next = null;
+			pre.next = n.next;
+			n.value = null;
 		}
 	}
 	
@@ -65,7 +66,6 @@ public class Offer_13_DeleteNodeInList {
 			}
 		}
 		return first;
-		
 	}
 	static class Node<String>{
 		String value;
