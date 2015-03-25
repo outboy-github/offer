@@ -1,19 +1,21 @@
 package com.wyw.offer;
 
+import java.util.Arrays;
+
 public class Offer_14_ReorderArray {
 
 	public static void main(String[] args){
 		
-		int[] array = {0,-2,2,4,5};
+		int[] array = {1,-2,2,4,5};
 		Function function = new Function();
-		int [] result = reorder(array, function);
-
-		for(int i = 0; i < result.length; i++){
-			System.out.println(result[i]);
-		}
+		reorder(array, function);
+		System.out.println(Arrays.toString(array));
 	}
-	static int[] reorder(int[] array, Function function){
+	static void reorder(int[] array, Function function){
 		
+		if(array == null && array.length <=1){
+			return;
+		}
 		int start = 0;
 		int end = array.length - 1;
 		while(start < end){
@@ -30,7 +32,6 @@ public class Offer_14_ReorderArray {
 				array[end] = tmp;
 			}
 		}
-		return array;
 	}
 
 	 static class Function{
