@@ -13,7 +13,7 @@ public class Offer_15_KthNodeFromEnd{
 			System.out.println(kthNode.value);
 		}
 		else{
-			System.out.println("array in null or k is out of the length of the array.");
+			System.out.println("array is null or k is out of the length of the array.");
 		}
 	}
 	static Node<String> KthNodeFromEnd(Node<String> first, int k){
