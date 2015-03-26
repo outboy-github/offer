@@ -1,6 +1,6 @@
 package com.wyw.offer;
 
-public class Offer_16_MergeSortedLists{
+public class Offer_16_ReverseList{
 
 	public static void main(String[] args){
 		
