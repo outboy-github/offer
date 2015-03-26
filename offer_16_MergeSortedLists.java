@@ -1,6 +1,6 @@
 package com.wyw.offer;
 
-public class Offer_16_ReverseList{
+public class Offer_16_MergeSortedLists{
 
 	public static void main(String[] args){
 		
@@ -15,18 +15,22 @@ public class Offer_16_ReverseList{
 			System.out.println("array is null.");
 		}
 	}
-	
 	static Node<String> reverseList(Node<String> head){
+		
 		Node<String> prev = null;
 		Node<String> reverseHead = head;
 		Node<String> node = head.next;
 		while(node != null){
+			
 			reverseHead.next = prev;
 			prev = reverseHead;
 			reverseHead = node;
 			node = node.next;
 		}
+		
 		return reverseHead;
+		
+		
 	}
 	static Node<String> parseArrayToLink(String[] array){
 		
@@ -42,6 +46,7 @@ public class Offer_16_ReverseList{
 			}
 			tmp = node;
 		}
+		
 		return first;
 	}
 	static class Node<String>{
