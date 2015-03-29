@@ -34,14 +34,9 @@ public class Offer_19_MirrorOfBinaryTree{
 		Node<Integer> root = null;
 		for(int i : array){
 			Node<Integer> node = new Node<Integer>(i);
-			if(root == null){
-				root = node;
-			}
-			else{
-				insert(root, node);
-			}
+				root = insert(root, node);
+			
 		}
-		
 		return root;
 	}
 	static Node<Integer> insert(Node<Integer> root, Node<Integer> node){
