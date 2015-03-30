@@ -7,13 +7,17 @@ public class Offer_29_MoreThanHalfNumber {
 	public static void main(String[] args) {
 
 		int[] array = {1,2,3,2,2,2,5,4,2};
-		int result = moreThanHalfNumber(array);
-		System.out.println(result);
 		
+//		int result = moreThanHalfNumber_1(array);
+
+		int result = moreThanHalfNumber_2(array);
+		
+		System.out.println(result);
 	}
 	
-	static int moreThanHalfNumber(int[] array){
-	
+	//method_1
+	static int moreThanHalfNumber_1(int[] array){
+		
 		int result = -1;
 		if(array.length == 0){
 			return -1;
@@ -35,6 +39,30 @@ public class Offer_29_MoreThanHalfNumber {
 		return result;
 	}
 	
+	//method_2
+	static int moreThanHalfNumber_2(int[] array){
+		
+		int times = 1;
+		int number = -1;
+		int index = -1;
+		for(int i = 0; i < array.length; i++){
+			if(times == 0){
+				number = array[i];
+				index = i;
+			}
+			if(number == array[i]){
+				times++;
+			}
+			else{
+				times--;
+			}
+		}
+		if(times != 0 && isMoreThanHalf(array, index)){
+			return number;
+		}
+		return -1;
+	}
+	
 	static boolean isMoreThanHalf(int[] array, int middle){
 		int times = 0;
 		int middleNum = array[middle];
@@ -48,6 +76,7 @@ public class Offer_29_MoreThanHalfNumber {
 		}
 		return true;
 	}
+	
 	static int partition(int[] array, int start, int end){
 		
 		int index = new Random().nextInt(end - start) + start;
@@ -61,10 +90,9 @@ public class Offer_29_MoreThanHalfNumber {
 			}
 		}
 		swap(array, firstBigThanIndex, end);
-		
 		return firstBigThanIndex;
-		
 	}
+	
 	static void swap(int[] array, int index0, int index1){
 		if(array.length != 0){
 			int tmp = array[index0];
