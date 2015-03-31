@@ -3,9 +3,8 @@ package com.wyw.offer;
 public class Offer_31_GreaterSumOfSubarrays {
 
 	public static void main(String[] args) {
-
-		int[] array = {1,-2,3,10,-4,7,2,-5};
 		
+		int[] array = {-1,-2,-3,-10,-4,-7,-2,-5};
 		greaterSumOfSubarrays(array);
 	}
 	
@@ -14,14 +13,14 @@ public class Offer_31_GreaterSumOfSubarrays {
 			System.out.println("array is null");
 			return;
 		}
-		int sum = 0;
-		int greatSum = 0;
-		for(int i : array){
-			if(sum <= 0){
-				sum = i;
+		int sum = array[0];
+		int greatSum = array[0];
+		for(int i = 1; i < array.length; i++){
+			if(sum < 0){
+				sum = array[i];
 			}
 			else{
-				sum += i;
+				sum += array[i];
 			}
 			if(sum > greatSum){
 				greatSum = sum;
