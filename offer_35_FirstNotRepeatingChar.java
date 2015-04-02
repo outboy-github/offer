@@ -21,7 +21,6 @@ public class Offer_35_FirstNotRepeatingChar {
 		}
 		Map<Character, Integer> map = new HashMap<Character, Integer>();
 		
-		List<Character> list = new ArrayList<Character>();
 		for(char ch : string.toCharArray()){
 			
 			if(!map.containsKey(ch)){
@@ -30,7 +29,6 @@ public class Offer_35_FirstNotRepeatingChar {
 			else{
 				map.put(ch, Integer.valueOf(map.get(ch)) + 1);
 			}
-			list.add(ch);
 		}
 		for(Character ch : list){
 			if(Integer.valueOf(map.get(ch)) == 1){
