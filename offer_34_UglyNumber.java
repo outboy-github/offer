@@ -4,11 +4,14 @@ public class Offer_34_UglyNumber {
 
 	public static void main(String[] args) {
 
-		int index = 5;
-		String result = UglyNumber(index);
-		System.out.println(result);
+		int index = 1500;
+		UglyNumber(index);
 	}
-	static String UglyNumber(int index){
+	static void UglyNumber(int index){
+		if(index < 1){
+			System.out.println("invalid input.");
+			return;
+		}
 		int min = 1;
 		int[] uglyNumberArray = new int[index];
 		uglyNumberArray[0] = 1;
@@ -30,7 +33,7 @@ public class Offer_34_UglyNumber {
 			}
 			nextIndex++;
 		}
-		return String.valueOf(min);
+		System.out.println(min);
 	}
 	static int Min(int ugly2, int ugly3, int ugly5){
 		
