@@ -1,44 +1,51 @@
 package com.wyw.offer;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Offer_36_InversePairs {
 
 	public static void main(String[] args) {
 
-//		String string = "abaccdebff";
-		String string = "aabb";
-		FirstNotRepeatingChar(string);
+		int[] array = {7,5,6,8};
+		inversePairs(array);
 	}
-	static void FirstNotRepeatingChar(String string){
-		char firstChar = ' ';
-		if(string == null || string.trim().length() < 1){
-			System.out.println("invalid input.");
-			return;
-		}
-		Map<Character, Integer> map = new HashMap<Character, Integer>();
+	static void inversePairs(int[] array){
+		int length = array.length;
+		int[] copy = new int[length];
+		int result = inverse(array, copy, 0, length - 1);
+		System.out.println(result);
+	}
+	
+	static int inverse(int[] array, int[] copy, int start, int end){
 		
-		for(char ch : string.toCharArray()){
-			
-			if(!map.containsKey(ch)){
-				map.put(ch, 1);
+		if(start == end){
+			copy[start] = array[start];
+			return 0;
+		}
+		
+		int length = (end - start) / 2;
+		
+		int left = inverse(copy, array, start, start + length);
+		int right = inverse(copy, array, start + length + 1, end);
+		
+		int i = start + length;
+		int j = end;
+		int nextIndex = end;
+		int count = 0;
+		while(i >= start && j >= start + length +1){
+			if(array[i] > array[j]){
+				copy[nextIndex--] = array[i--]; 
+				count += j - start - length;
 			}
 			else{
-				map.put(ch, Integer.valueOf(map.get(ch)) + 1);
+				copy[nextIndex--] = array[j--];
 			}
 		}
-		for(Character ch : string.toCharArray()){
-			if(Integer.valueOf(map.get(ch)) == 1){
-				firstChar = ch;
-				break;
-			}
+		
+		while(i >= start){
+			copy[nextIndex--] = array[i--];
 		}
-		if(firstChar == ' '){
-			System.out.println("the not repeat char is not exist.");
+		while(j >= start + length + 1){
+			copy[nextIndex--] = array[j--];
 		}
-		else{
-			System.out.println(firstChar);
-		}
+		return count + left + right;
 	}
 }
