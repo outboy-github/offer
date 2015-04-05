@@ -12,22 +12,12 @@ public class Offer_39_1_TreeDepth {
 	}
 	
 	static int getTreeDepth(Node<Integer> root){
-		int left = 0;
-		int right = 0;
-		int result = 0;
 		if(root == null){
-			result = 0;
+			return 0;
 		}
-		else{
-			if(root.left != null){
-				left = getTreeDepth(root.left);
-			}
-			if(root.right != null){
-				right = getTreeDepth(root.right);
-			}
-			result = (left > right) ? left + 1 : right + 1;
-		}
-		return result;
+		left = getTreeDepth(root.left);
+		right = getTreeDepth(root.right);
+		return (left > right) ? left + 1 : right + 1;
 	}
 	
 	static Node<Integer> parseArrayToTree(int[] array){
