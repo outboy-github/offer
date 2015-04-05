@@ -8,7 +8,7 @@ public class Offer_38_NumberOfK {
 
 	public static void main(String[] args) {
 	
-		int[] array = {};//{1,2,3,3,7};
+		int[] array = {1,2,3,3,7};
 		int k = 3;
 		int result = numberOfK(array, 0, array.length - 1, k);
 		if(result > 0){
