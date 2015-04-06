@@ -8,7 +8,12 @@ public class Offer_42_2_LeftRotateString {
 		int n = 3;
 		char[] words = string.toCharArray();
 		//先反转前n个字符,再翻转其他的,最后在全部翻转
-		words = reverse(words, n);
+		if(n < words.length){
+			words = reverse(words, n);
+		}
+		else{
+			System.out.println("(n > length) is faulty.");
+		}
 		for(char ch : words){
 			System.out.print(ch);
 		}
