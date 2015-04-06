@@ -1,6 +1,6 @@
 package com.wyw.offer;
 
-public class Offer_42_2_ContinuesSquenceWithSum {
+public class Offer_41_2_ContinuesSquenceWithSum {
 
 	public static void main(String[] args) {
 		int sum = 15;
